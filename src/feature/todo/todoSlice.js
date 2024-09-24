@@ -4,7 +4,7 @@ import { createSlice , nanoid } from "@reduxjs/toolkit";
 // action: Wo action jo dispatch kiya gaya hai, jisme data hota hai jo state ko update karne ke liye zaroori hai.
 
 const initialState = {
-    todos : [{id :1 , text : 'HeLLO WORLD'}]
+    todos : [{id :1 , text : 'Hello world'}]
 }
 
 export const todoSlice = createSlice ({
