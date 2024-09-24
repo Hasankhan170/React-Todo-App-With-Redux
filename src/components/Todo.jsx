@@ -29,8 +29,6 @@ function Todo() {
         <li>{todo.text}</li>
         <button onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
         <button onClick={()=>handleEdit(todo)}>Edit</button>
-
-
       </div>
     ))
   ) : (
