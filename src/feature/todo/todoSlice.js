@@ -19,7 +19,8 @@ export const todoSlice = createSlice ({
         },
         removeTodo : (state,action)=>{
             // filter() method array ko filter karta hai aur un todos ko return karta hai jinka id action ke payload ke equal nahi hai.
-            state.todos = state.todos.filter(todo=> todo.id!== action.payload)
+            // state.todos = state.todos.filter(todo=> todo.id!== action.payload)
+            state.todos.splice(action.payload.id,1)
         },
         updateTodo : (state,action)=>{
            const {id, newText} = action.payload

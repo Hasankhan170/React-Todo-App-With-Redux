@@ -20,6 +20,10 @@ function Todo() {
     }
 
     }
+
+    const deleteTodo = (id)=>{
+      dispatch(removeTodo(id))
+    }
     
    return (
     <>
@@ -31,7 +35,7 @@ function Todo() {
         <h3>{todo.text}</h3>
         </div>
        <div>
-       <button className="delete" onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
+       <button className="delete" onClick={()=> deleteTodo(todo.id)}>Delete</button>
        <button className="edit" onClick={()=>handleEdit(todo)}>Edit</button>
        </div>
       </div>
