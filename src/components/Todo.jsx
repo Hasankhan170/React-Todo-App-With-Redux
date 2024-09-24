@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import {removeTodo, updateTodo} from "../feature/todo/todoSlice"
+import "../components/Todo.css"
 
 
 function Todo() {
@@ -22,17 +23,21 @@ function Todo() {
     
    return (
     <>
-   <div>
+   <div className="main-div">
   {todos && todos.length > 0 ? (
     todos.map((todo) => (
-      <div key={todo.id}>
-        <li>{todo.text}</li>
-        <button onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
-        <button onClick={()=>handleEdit(todo)}>Edit</button>
+      <div className="inner" key={todo.id}>
+        <div>
+        <h3>{todo.text}</h3>
+        </div>
+       <div>
+       <button className="delete" onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
+       <button className="edit" onClick={()=>handleEdit(todo)}>Edit</button>
+       </div>
       </div>
     ))
   ) : (
-    <p>No Todos found...</p>
+    <p className="para">No Todos found...</p>
   )}
 </div>
 

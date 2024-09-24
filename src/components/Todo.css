@@ -1,0 +1,31 @@
+.main-div{
+    margin-top: 20px;
+}
+
+.inner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aliceblue;
+    margin: 5px;
+}
+
+.delete{
+    background-color: red;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    border: none;
+    margin-right: 5px;
+}
+.edit{
+    background-color: rgb(28, 255, 28);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    border: none;
+}
+
+.para{
+    text-align: center;
+}
