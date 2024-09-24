@@ -20,9 +20,16 @@ export const todoSlice = createSlice ({
         removeTodo : (state,action)=>{
             // filter() method array ko filter karta hai aur un todos ko return karta hai jinka id action ke payload ke equal nahi hai.
             state.todos = state.todos.filter(todo=> todo.id!== action.payload)
+        },
+        updateTodo : (state,action)=>{
+           const {id, newText} = action.payload
+           const todo = state.todos.find(todo => todo.id === id)
+           if(todo){
+            todo.text = newText
+           }
         }
     }
 })
 
-export const {addTodo, removeTodo} = todoSlice.actions
+export const {addTodo, removeTodo,updateTodo} = todoSlice.actions
 export default todoSlice.reducer

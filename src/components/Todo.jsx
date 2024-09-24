@@ -1,11 +1,25 @@
 import { useDispatch, useSelector } from "react-redux"
-import {removeTodo} from "../feature/todo/todoSlice"
+import {removeTodo, updateTodo} from "../feature/todo/todoSlice"
+
 
 function Todo() {
 
-    const todos = useSelector((state) => state.todos.todos)
+  const todos = useSelector((state) => state.todos.todos)
+  const dispatch = useDispatch()
+
+  const handleEdit = (todo)=>{
+    const newText = prompt('enter new text')
+    if(newText.trim() === ''){
+      return;
+    }
     
-    const dispatch = useDispatch()
+
+    if(newText){
+      dispatch(updateTodo({id:todo.id, newText}))
+    }
+
+    }
+    
    return (
     <>
    <div>
@@ -14,6 +28,9 @@ function Todo() {
       <div key={todo.id}>
         <li>{todo.text}</li>
         <button onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
+        <button onClick={()=>handleEdit(todo)}>Edit</button>
+
+
       </div>
     ))
   ) : (
