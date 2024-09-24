@@ -12,6 +12,10 @@ function AddTodo() {
 
     const handleForm = (e)=>{
         e.preventDefault()
+        if (input.trim() === '') {
+          alert("Please enter a todo!");
+          return;
+        }
         dispatch(addTodo(input))
         setInput('')
     }
@@ -21,7 +25,7 @@ function AddTodo() {
 
     <form onSubmit={handleForm}>
         <input type="text" placeholder="Add Todo" value={input} onChange={(e)=> setInput(e.target.value)}/>
-        <button type="submit">Add</button>
+        <button type="submit" disabled={!input.trim()}>Add</button>
     </form>
     </>
   )

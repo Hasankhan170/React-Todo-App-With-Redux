@@ -3,31 +3,25 @@ import {removeTodo} from "../feature/todo/todoSlice"
 
 function Todo() {
 
-    const todos = useSelector((state) => state.todos)
-    console.log(todos);
-    const dispatch = useDispatch()
-    if (todos.length === 0) {
-      return (
-        <div>
-          <p>No Todos found...</p>
-        </div>
-      )
-  }
+    const todos = useSelector((state) => state.todos.todos)
     
-   
-    return (
-      <>
-       <div>
-        <ul>
-          {todos.map((todo) => (
-            <li style={{ color: 'black' }} key={todo.id}>
-              {todo.text}
-              <button onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
-            </li>
-          ))}
-        </ul>
+    const dispatch = useDispatch()
+   return (
+    <>
+   <div>
+  {todos && todos.length > 0 ? (
+    todos.map((todo) => (
+      <div key={todo.id}>
+        <li>{todo.text}</li>
+        <button onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
       </div>
-      </>
+    ))
+  ) : (
+    <p>No Todos found...</p>
+  )}
+</div>
+
+    </>
      
     )
     
