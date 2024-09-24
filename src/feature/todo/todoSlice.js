@@ -1,4 +1,4 @@
-import { createSlice , nanoid, nonoid } from "@reduxjs/toolkit";
+import { createSlice , nanoid } from "@reduxjs/toolkit";
 
 // state: Redux store ka current state.
 // action: Wo action jo dispatch kiya gaya hai, jisme data hota hai jo state ko update karne ke liye zaroori hai.

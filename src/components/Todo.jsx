@@ -8,12 +8,13 @@ function Todo() {
     return (
       <>
       <div>
-      {todos.map((todo)=>{
-        <li key={todo.id}>
-            {todo.text}
-            <button onClick={}>Delete</button>
-        </li>
-      })}
+      {todos.length > 0 ? todos.map((todo)=>{
+            <li key={todo.id}>
+                {todo.text}
+                <button onClick={()=>dispatch(removeTodo(todo.id))}>Delete</button>
+            </li>
+          }
+      ) : <p>No Todo Founds..</p>}
       </div>
       </>
     )
