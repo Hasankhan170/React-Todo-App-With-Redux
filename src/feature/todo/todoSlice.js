@@ -1,14 +1,7 @@
 import { createSlice , nanoid, nonoid } from "@reduxjs/toolkit";
 
-// export const todoSlice =({
-//     name : 'todo',
-//     initialState : {
-//         todo : []
-//     },
-//     reducers : {
-//         addTodo : (state,action)=>{}
-//     }
-// })
+// state: Redux store ka current state.
+// action: Wo action jo dispatch kiya gaya hai, jisme data hota hai jo state ko update karne ke liye zaroori hai.
 
 const initialState = {
     todos : [{id :1 , text : 'HeLLO WORLD'}]
@@ -26,6 +19,7 @@ export const todoSlice = createSlice ({
             state.todos.push(todo)
         },
         removeTodo : (state,action)=>{
+            // filter() method array ko filter karta hai aur un todos ko return karta hai jinka id action ke payload ke equal nahi hai.
             state.todos = state.todos.filter(todo=> todo.id!== action.payload)
         }
     }
